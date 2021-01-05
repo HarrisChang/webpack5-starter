@@ -2,7 +2,7 @@
  * @Author: zhangqi
  * @Date: 2021-01-05 15:11:31
  * @Description: webpack main config file
- * @LastEditTime: 2021-01-05 16:08:05
+ * @LastEditTime: 2021-01-05 16:30:43
  * @LastEditors: zhangqi
  * @FilePath: /webpack5-starter-ts/webpack.config.js
  */
@@ -14,7 +14,7 @@ const webpack = require('webpack')
 module.exports = {
     mode: 'development',
     entry: {
-        main: path.resolve(__dirname, './src/index.js')
+        main: path.resolve(__dirname, './src/index.ts')
     },
     output: {
         filename: '[name].bundle.js',
@@ -22,6 +22,11 @@ module.exports = {
     },
     module: {
         rules: [
+            // ts
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader'
+            },
             // js
             {
                 test: /.js$/,
